@@ -5,11 +5,19 @@ const cors = require('cors');
 const contactRoutes = require('./routes/contactRoutes');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+// CORS configuration
+const corsOptions = {
+    origin: 'https://qr-contact-form-46bkfid7e-jordan-hackworths-projects.vercel.app',
+    methods: 'GET,POST', // Methods to allow
+    allowedHeaders: 'Content-Type, x-api-key', // Headers to allow
+    optionsSuccessStatus: 200
+};
 
 // Middleware
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
-app.use(cors());
 
 // Routes
 app.use('/contact', contactRoutes);
@@ -43,4 +51,5 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
+    console.log('Loaded API Key:', process.env.API_KEY);
 });
