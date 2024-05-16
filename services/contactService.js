@@ -1,15 +1,17 @@
 const emailService = require('./emailService');
 const smsService = require('./smsService');
 
-exports.handleFormSubmission = ({ name, email, phone, services, message }) => {
+exports.handleFormSubmission = ({ name, email, phone, services, otherService, message }) => {
     return new Promise((resolve, reject) => {
-        // Add logic to store the data, send an email, etc.
-        console.log(`Received submission: ${name}, ${email}, ${phone}, ${services}, ${message}`);
+        const finalService = services === 'other' ? otherService : services;
+
+        console.log(`Received submission: ${name}, ${email}, ${phone}, ${finalService}, ${message}`);
 
         // Send email notification
-        emailService.sendEmail({ name, email, phone, services, message })
+        emailService.sendEmail({ name, email, phone, services: finalService, message })
 //            .then(() => {
-//                return smsService.sendSms({ name, email, phone, services, message });
+//                // Uncomment the SMS service if needed
+//                return smsService.sendSms({ name, email, phone, services: finalService, message });
 //            })
             .then(() => {
                 resolve();
