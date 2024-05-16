@@ -1,9 +1,9 @@
 const contactService = require('../services/contactService');
 
 exports.submitContactForm = (req, res) => {
-    const { name, email, phone, services, otherService, message } = req.body;
+    const { name, email, phone, address, services, otherService, message } = req.body;
 
-    contactService.handleFormSubmission({ name, email, phone, services, otherService, message })
+    contactService.handleFormSubmission({ name, email, phone, address, services, otherService, message })
         .then(() => {
             res.json({ status: 'success', message: 'Form submitted successfully' });
         })
