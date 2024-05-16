@@ -7,7 +7,7 @@ const contactRoutes = require('./routes/contactRoutes');
 const app = express();
 const port = 3000;
 
-const allowedOrigins = ['http://localhost:3000', 'https://your-frontend-domain.com']; // Add your frontend URL here
+const allowedOrigins = ['http://localhost:3000', 'https://qr-contact-form-app.vercel.app/'];
 
 app.use(cors({
   origin: function (origin, callback) {
