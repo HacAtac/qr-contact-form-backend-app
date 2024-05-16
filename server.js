@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
             post: [
                 {
                     route: "/contact/submit",
-                    description: "Submit a contact form. Expects JSON payload with name, email, phone, services, and message."
+                    description: "Submit a contact form. Expects JSON payload with name, email, phone, address, services, and message."
                 }
             ]
         },

@@ -5,14 +5,14 @@ exports.handleFormSubmission = ({ name, email, phone, address, services, otherSe
     return new Promise((resolve, reject) => {
         const finalService = services === 'other' ? otherService : services;
 
-        console.log(`Received submission: ${name}, ${email}, ${phone}, %{address}, ${finalService}, ${message}`);
+        console.log(`Received submission: ${name}, ${email}, ${phone}, ${address}, ${finalService}, ${message}`);
 
         // Send email notification
-        emailService.sendEmail({ name, email, phone, ,address, services: finalService, message })
-//            .then(() => {
-//                // Uncomment the SMS service if needed
-//                return smsService.sendSms({ name, email, phone, services: finalService, message });
-//            })
+        emailService.sendEmail({ name, email, phone, address, services: finalService, message })
+            .then(() => {
+                // Uncomment the SMS service if needed
+                // return smsService.sendSms({ name, email, phone, services: finalService, message });
+            })
             .then(() => {
                 resolve();
             })
