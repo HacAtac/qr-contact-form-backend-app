@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 // CORS configuration
 const corsOptions = {
-    origin: 'https://qr-contact-form-46bkfid7e-jordan-hackworths-projects.vercel.app',
+    origin: 'https://qr-contact-form-app.vercel.app',
     methods: 'GET,POST', // Methods to allow
     allowedHeaders: 'Content-Type, x-api-key', // Headers to allow
     optionsSuccessStatus: 200
