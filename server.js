@@ -48,6 +48,7 @@ app.get('/', (req, res) => {
     contact: {
       email: "greenkinglandscaping2023@gmail.com,
       website: "https://qr-contact-form-app.vercel.app/contact
+
     },
     version: "1.0.0"
   };
