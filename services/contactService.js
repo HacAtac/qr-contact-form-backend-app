@@ -10,8 +10,7 @@ exports.handleFormSubmission = ({ name, email, phone, address, services, otherSe
         // Send email notification
         emailService.sendEmail({ name, email, phone, address, services: finalService, message })
             .then(() => {
-                // Uncomment the SMS service if needed
-                // return smsService.sendSms({ name, email, phone, services: finalService, message });
+                 return smsService.sendSms({ name, email, phone, services: finalService, message });
             })
             .then(() => {
                 resolve();
