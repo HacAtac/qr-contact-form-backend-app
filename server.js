@@ -7,7 +7,14 @@ const contactRoutes = require('./routes/contactRoutes');
 const app = express();
 const port = 3000;
 
-const allowedOrigins = ['http://localhost:3000', 'https://qr-contact-form-app.vercel.app', 'https://greenkinglandscaping.org', 'greenkinglandscaping.org'];
+const allowedOrigins = [
+'http://localhost:3000',
+'https://qr-contact-form-app.vercel.app',
+'https://greenkinglandscaping.org',
+'greenkinglandscaping.org',
+'greenkinglandscaping.org/contact',
+'https://www.greenkinglandscaping.org/contact'
+];
 
 app.use(cors({
   origin: function (origin, callback) {
