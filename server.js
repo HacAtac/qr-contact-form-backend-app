@@ -8,25 +8,29 @@ const app = express();
 const port = 3000;
 
 const allowedOrigins = [
-'http://localhost:3000',
-'https://qr-contact-form-app.vercel.app',
-'https://greenkinglandscaping.org',
-'greenkinglandscaping.org',
-'greenkinglandscaping.org/contact',
-'https://www.greenkinglandscaping.org/contact'
+  'http://localhost:3000',
+  'https://qr-contact-form-app.vercel.app',
+  'https://www.greenkinglandscaping.org',
+  'http://www.greenkinglandscaping.org',
+  'https://greenkinglandscaping.org',
+  'http://greenkinglandscaping.org'
 ];
+
 
 app.use(cors({
   origin: function (origin, callback) {
+    console.log("Origin:", origin); // Logging the origin for debugging
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.log("Blocked by CORS:", origin); // Logging blocked origins
       callback(new Error('Not allowed by CORS'));
     }
   },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 }));
+
 
 // Middleware
 app.use(bodyParser.json());
